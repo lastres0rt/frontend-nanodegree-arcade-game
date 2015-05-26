@@ -42,8 +42,15 @@ Player.prototype.handleInput = function(keyCode) {
 }
 
 // Now instantiate your objects.
+// because the file loaded is blank,
+// I assume we need to somehow render the screen from here?
+
+
 // Place all enemy objects in an array called allEnemies
+
+allEnemies = [new Enemy(), new Enemy(), new Enemy()];
 // Place the player object in a variable called player
+player = new Player();
 
 
 
