@@ -42,6 +42,20 @@ var Player = function () {
 
 Player.prototype.update = function(dt) {
     // Code Goes here
+    for (var i = 0; i < 3; i++){
+        var e = allEnemies[i];
+        var dx = Math.abs(e.x - (this.x * 101));
+        if (e.y === this.y){
+            if(dx <= 100){ // collision!
+                    this.x = 2;
+                    this.y = 5;
+            }
+        }
+    }
+    if(this.y === 0){
+        this.x = 2;
+        this.y = 5;
+    }
 }
 
 Player.prototype.render = function(){
