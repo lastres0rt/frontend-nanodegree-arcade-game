@@ -27,8 +27,8 @@ Enemy.prototype.render = function() {
 
 var Player = function () {
     this.sprite = 'images/char-boy.png';
-    this.x = 0;
-    this.y = 0;
+    this.x = 2;
+    this.y = 5;
 }
 
 Player.prototype.update = function(dt) {
@@ -36,23 +36,31 @@ Player.prototype.update = function(dt) {
 }
 
 Player.prototype.render = function(){
-    ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
+    ctx.drawImage(Resources.get(this.sprite), this.x * 101, (this.y * 83) - 10);
 }
 
 Player.prototype.handleInput = function(keyCode) {
     // Do something with keyCode here//
     switch (keyCode) {
         case 'right':
-            this.x++;
+            if(this.x < 4) {
+                this.x++;
+            }
             break;
         case 'left':
-            this.x--;
+            if (this.x > 0){
+                this.x--;
+            }
             break;
         case 'up':
-            this.y--;
+            if (this.y > 0){
+                this.y--;
+            }
             break;
         case 'down':
-            this.y++;
+            if(this.y < 5) {
+                this.y++;
+            }
             break;
         default:
             // do nothing;
