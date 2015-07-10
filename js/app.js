@@ -27,8 +27,8 @@ Enemy.prototype.render = function() {
 
 var Player = function () {
     this.sprite = 'images/char-boy.png';
-    this.x = 2;
-    this.y = 5;
+    this.x = 0;
+    this.y = 0;
 }
 
 Player.prototype.update = function(dt) {
@@ -41,6 +41,23 @@ Player.prototype.render = function(){
 
 Player.prototype.handleInput = function(keyCode) {
     // Do something with keyCode here//
+    switch (keyCode) {
+        case 'right':
+            this.x++;
+            break;
+        case 'left':
+            this.x--;
+            break;
+        case 'up':
+            this.y--;
+            break;
+        case 'down':
+            this.y++;
+            break;
+        default:
+            // do nothing;
+            break;
+    }
 }
 
 // Now instantiate your objects.
