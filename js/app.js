@@ -27,6 +27,8 @@ Enemy.prototype.render = function() {
 
 var Player = function () {
     this.sprite = 'images/char-boy.png';
+    this.x = 2;
+    this.y = 5;
 }
 
 Player.prototype.update = function(dt) {
@@ -34,7 +36,7 @@ Player.prototype.update = function(dt) {
 }
 
 Player.prototype.render = function(){
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
 }
 
 Player.prototype.handleInput = function(keyCode) {
@@ -51,7 +53,6 @@ Player.prototype.handleInput = function(keyCode) {
 allEnemies = [new Enemy(), new Enemy(), new Enemy()];
 // Place the player object in a variable called player
 player = new Player();
-
 
 
 // This listens for key presses and sends the keys to your
