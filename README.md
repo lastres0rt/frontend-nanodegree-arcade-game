@@ -12,6 +12,7 @@ What this means:
 
 # How to Play
 
-1. Download the everything, including the included image files.
+1. Download everything, including the included image files.
 2. Open `index.html`.
-3. Play!
+3. Use the arrow keys to move your character around the screen.
+4. Avoid bugs!
