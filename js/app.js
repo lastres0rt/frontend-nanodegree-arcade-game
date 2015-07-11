@@ -7,8 +7,8 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.x = 0;
-    this.y = Math.floor(Math.random() * 3) + 1;
-}
+    this.y = Math.floor(Math.random() * 3) + 1; // random row picked
+};
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -17,18 +17,18 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     if (this.x < 505){
-        this.x += this.y * 2;
-    } else {
+        this.x += this.y * 25 * dt;
+    } else { // bug is off the screen!
         this.x = -101;
         this.y = Math.floor(Math.random() * 3) + 1;
     }
 
-}
+};
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, (this.y * 83) - 20);
-}
+};
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -38,15 +38,15 @@ var Player = function () {
     this.sprite = 'images/char-boy.png';
     this.x = 2;
     this.y = 5;
-}
+};
 
 Player.prototype.update = function(dt) {
-    // Code Goes here
     for (var i = 0; i < 3; i++){
         var e = allEnemies[i];
-        var dx = Math.abs(e.x - (this.x * 101));
         if (e.y === this.y){
-            if(dx <= 100){ // collision!
+            //have to use Math.abs because otherwise we'd detect bugs on the right
+            var dx = Math.abs(e.x - (this.x * 101));
+            if(dx <= 100){ // collision detected!
                     this.x = 2;
                     this.y = 5;
             }
@@ -56,14 +56,14 @@ Player.prototype.update = function(dt) {
         this.x = 2;
         this.y = 5;
     }
-}
+};
 
 Player.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite), this.x * 101, (this.y * 83) - 10);
-}
+};
 
 Player.prototype.handleInput = function(keyCode) {
-    // Do something with keyCode here//
+    //based on the key pressed, we run a switch statement to move the player.
     switch (keyCode) {
         case 'right':
             if(this.x < 4) {
@@ -89,18 +89,17 @@ Player.prototype.handleInput = function(keyCode) {
             // do nothing;
             break;
     }
-}
+};
 
 // Now instantiate your objects.
 // because the file loaded is blank,
 // I assume we need to somehow render the screen from here?
 
-
 // Place all enemy objects in an array called allEnemies
+var allEnemies = [new Enemy(), new Enemy(), new Enemy()];
 
-allEnemies = [new Enemy(), new Enemy(), new Enemy()];
 // Place the player object in a variable called player
-player = new Player();
+var player = new Player();
 
 
 // This listens for key presses and sends the keys to your
