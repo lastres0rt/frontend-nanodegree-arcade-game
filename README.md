@@ -1,6 +1,6 @@
 # Udacity Project 3 -- Classic Arcade Game Clone
 
-![](https://imgur.com/zzSDZRE)
+![](http://i.imgur.com/zzSDZRE.png)
 
 This project is meant to emulate the gameplay found in _Frogger_.
 
