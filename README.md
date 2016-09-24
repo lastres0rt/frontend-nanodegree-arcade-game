@@ -1,4 +1,5 @@
 # Udacity Project 3 -- Classic Arcade Game Clone
+![Part of the Udacity Front-End Web Development Nanodegree](https://img.shields.io/badge/Udacity-Front--End%20Web%20Developer%20Nanodegree-02b3e4.svg)
 
 ![](http://i.imgur.com/zzSDZRE.png)
 
